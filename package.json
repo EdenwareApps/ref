@@ -40,6 +40,6 @@
     "jade": "1",
     "marked": "0.5.2",
     "mocha": "*",
-    "weak": "1"
+    "weak": "github:efoxbr/node-weak"
   }
 }
