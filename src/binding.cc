@@ -219,7 +219,8 @@ NAN_METHOD(WriteObject) {
   Nan::Persistent<Object>* pptr = reinterpret_cast<Nan::Persistent<Object>*>(ptr);
   Local<Object> val = info[2].As<Object>();
 
-  bool persistent = info[3]->BooleanValue(v8::Isolate::GetCurrent()->GetCurrentContext()).ToChecked();
+  v8::Isolate* isolate = v8::Isolate::GetCurrent();
+  bool persistent = info[3]->BooleanValue(isolate).ToChecked();
   if (persistent) {
       (*pptr).Reset(val);
   } else {
